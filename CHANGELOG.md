@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.2] - 2026-03-18
+
+- Fix JSON string escaping in HealthReport.toJson()
+
 ## [0.1.1] - 2026-03-18
 
 - Upgrade to Kotlin 2.0.21 and Gradle 8.12
