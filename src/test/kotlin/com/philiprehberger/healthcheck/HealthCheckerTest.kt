@@ -23,6 +23,6 @@ class HealthCheckerTest {
     @Test fun `json output`() = runTest {
         val hc = healthCheck { check("db") { true } }
         val json = hc.check().toJson()
-        assertTrue(json.contains(""status":"UP""))
+        assertTrue(json.contains("\"status\":\"UP\""))
     }
 }
