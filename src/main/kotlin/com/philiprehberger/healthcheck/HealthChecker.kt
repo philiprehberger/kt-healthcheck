@@ -40,7 +40,12 @@ public class HealthChecker internal constructor(private val checks: List<CheckDe
             }
         }
         val criticalDown = results.any { r -> checks.first { it.name == r.name }.critical && r.status == HealthStatus.DOWN }
-        val overall = if (criticalDown) HealthStatus.DOWN else HealthStatus.UP
+        val nonCriticalDown = results.any { r -> !checks.first { it.name == r.name }.critical && r.status == HealthStatus.DOWN }
+        val overall = when {
+            criticalDown -> HealthStatus.DOWN
+            nonCriticalDown -> HealthStatus.DEGRADED
+            else -> HealthStatus.UP
+        }
         return HealthReport(overall, results, totalDuration)
     }
 }

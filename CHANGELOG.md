@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0 (2026-03-31)
+
+- Add `DEGRADED` health status for non-critical check failures
+- Add `toMap()` to export health report as a Map
+- Non-critical check failures now result in DEGRADED instead of DOWN
+
 ## 0.1.7 (2026-03-31)
 
 - Standardize README to 3-badge format with emoji Support section

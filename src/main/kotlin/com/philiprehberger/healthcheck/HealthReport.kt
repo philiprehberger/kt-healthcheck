@@ -34,4 +34,24 @@ public data class HealthReport(
         append(duration)
         append("\"}")
     }
+
+    /**
+     * Returns the health report as a [Map] for flexible serialization.
+     *
+     * @return a map representation of the report
+     */
+    public fun toMap(): Map<String, Any?> {
+        return mapOf(
+            "status" to status.name,
+            "checks" to checks.map { c ->
+                mapOf(
+                    "name" to c.name,
+                    "status" to c.status.name,
+                    "duration" to c.duration.toString(),
+                    "error" to c.error,
+                )
+            },
+            "duration" to duration.toString(),
+        )
+    }
 }

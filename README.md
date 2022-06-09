@@ -11,7 +11,7 @@ Composable health check framework with readiness and liveness probes.
 ### Gradle (Kotlin DSL)
 
 ```kotlin
-implementation("com.philiprehberger:healthcheck:0.1.6")
+implementation("com.philiprehberger:healthcheck:0.2.0")
 ```
 
 ### Maven
@@ -20,7 +20,7 @@ implementation("com.philiprehberger:healthcheck:0.1.6")
 <dependency>
     <groupId>com.philiprehberger</groupId>
     <artifactId>healthcheck</artifactId>
-    <version>0.1.6</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
@@ -40,6 +40,27 @@ report.isHealthy() // true
 report.toJson()    // {"status":"UP",...}
 ```
 
+### Degraded Status
+
+Non-critical check failures result in DEGRADED status instead of DOWN:
+
+```kotlin
+val hc = healthCheck {
+    check("database", critical = true) { checkDb() }
+    check("cache", critical = false) { checkCache() }  // Failure = DEGRADED, not DOWN
+}
+
+val report = hc.check()
+// report.status = DEGRADED if only cache fails
+```
+
+### Map Export
+
+```kotlin
+val map = report.toMap()
+// {"status": "UP", "checks": [...], "duration": "..."}
+```
+
 ## API
 
 | Function / Class | Description |
@@ -50,6 +71,8 @@ report.toJson()    // {"status":"UP",...}
 | `HealthReport.isHealthy()` | Check overall status |
 | `HealthReport.toJson()` | JSON output |
 | `HealthStatus` | UP or DOWN |
+| `HealthStatus.DEGRADED` | Intermediate status for non-critical failures |
+| `HealthReport.toMap()` | Export report as a Map for flexible serialization |
 
 ## Development
 
