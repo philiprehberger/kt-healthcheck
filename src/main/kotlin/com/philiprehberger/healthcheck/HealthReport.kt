@@ -10,8 +10,28 @@ public data class HealthReport(
 ) {
     public fun isHealthy(): Boolean = status == HealthStatus.UP
     public fun toJson(): String = buildString {
-        append("{"status":"$status","checks":[")
-        append(checks.joinToString(",") { "{"name":"${it.name}","status":"${it.status}","duration":"${it.duration}"${if (it.error != null) ","error":"${it.error}"" else ""}}" })
-        append("],"duration":"$duration"}")
+        append("{\"status\":\"")
+        append(status)
+        append("\",\"checks\":[")
+        append(checks.joinToString(",") { c ->
+            buildString {
+                append("{\"name\":\"")
+                append(c.name)
+                append("\",\"status\":\"")
+                append(c.status)
+                append("\",\"duration\":\"")
+                append(c.duration)
+                append("\"")
+                if (c.error != null) {
+                    append(",\"error\":\"")
+                    append(c.error)
+                    append("\"")
+                }
+                append("}")
+            }
+        })
+        append("],\"duration\":\"")
+        append(duration)
+        append("\"}")
     }
 }
