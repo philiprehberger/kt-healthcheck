@@ -12,7 +12,7 @@ Composable health check framework with readiness and liveness probes.
 
 ```kotlin
 dependencies {
-    implementation("com.philiprehberger:healthcheck:0.1.4")
+    implementation("com.philiprehberger:healthcheck:0.1.5")
 }
 ```
 
@@ -22,7 +22,7 @@ dependencies {
 <dependency>
     <groupId>com.philiprehberger</groupId>
     <artifactId>healthcheck</artifactId>
-    <version>0.1.4</version>
+    <version>0.1.5</version>
 </dependency>
 ```
 
