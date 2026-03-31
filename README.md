@@ -1,9 +1,8 @@
 # healthcheck
 
 [![Tests](https://github.com/philiprehberger/kt-healthcheck/actions/workflows/publish.yml/badge.svg)](https://github.com/philiprehberger/kt-healthcheck/actions/workflows/publish.yml)
-[![Maven Central](https://img.shields.io/maven-central/v/com.philiprehberger/healthcheck)](https://central.sonatype.com/artifact/com.philiprehberger/healthcheck)
-[![License](https://img.shields.io/github/license/philiprehberger/kt-healthcheck)](LICENSE)
-[![Sponsor](https://img.shields.io/badge/sponsor-GitHub%20Sponsors-ec6cb9)](https://github.com/sponsors/philiprehberger)
+[![Maven Central](https://img.shields.io/maven-central/v/com.philiprehberger/healthcheck.svg)](https://central.sonatype.com/artifact/com.philiprehberger/healthcheck)
+[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/kt-healthcheck)](https://github.com/philiprehberger/kt-healthcheck/commits/main)
 
 Composable health check framework with readiness and liveness probes.
 
@@ -59,6 +58,24 @@ report.toJson()    // {"status":"UP",...}
 ./gradlew build
 ```
 
+## Support
+
+If you find this project useful:
+
+⭐ [Star the repo](https://github.com/philiprehberger/kt-healthcheck)
+
+🐛 [Report issues](https://github.com/philiprehberger/kt-healthcheck/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+
+💡 [Suggest features](https://github.com/philiprehberger/kt-healthcheck/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
+
+❤️ [Sponsor development](https://github.com/sponsors/philiprehberger)
+
+🌐 [All Open Source Projects](https://philiprehberger.com/open-source-packages)
+
+💻 [GitHub Profile](https://github.com/philiprehberger)
+
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/philiprehberger)
+
 ## License
 
-MIT
+[MIT](LICENSE)
